@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zigb - AI-Powered Mock Interviews</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Google Sans', Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .logo-gradient {
+            background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2; /* Adjusted line-height */
+            padding-bottom: 0.2em; /* Added padding to avoid cutoff */
+        }
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .typing {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        /* Fixed height for typing text to prevent layout shift */
+        #dynamic-part {
+            display: inline-block;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between">
+    <!-- Header -->
+    <header class="w-full p-6 flex justify-between items-center">
+        <!-- Simple, smaller, white "Zigb" text -->
+        <div class="text-xl font-bold text-white">ZigB</div>
+        <nav class="flex items-center space-x-6 text-white">
+            <a href="#" class="text-base hover:text-gray-300">For business</a>
+            <a href="#" class="text-base hover:text-gray-300">FAQ</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 flex items-center justify-between space-x-12 fade-in">
+        <!-- Left Section -->
+        <div class="w-1/2">
+            <h1 class="text-6xl font-bold mb-6 logo-gradient">ZigB</h1>
+            <!-- Supercharge your interview -->
+            <h2 class="text-3xl font-light mb-6">Supercharge your Interviews</h2>
+            <!-- "Start, Stop" and dynamic text on the same line -->
+            <div class="text-xl mb-8 text-gray-400">
+                <span>Start, Stop, </span><span id="dynamic-part"></span>
+            </div>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-full text-lg transition duration-300 hover-scale">
+                Get ZigB
+            </button>
+        </div>
+
+        <!-- Right Section (Replaced Image with Video) -->
+        <div class="w-1/2">
+            <video id="zigbVideo" class="rounded-lg shadow-lg hover-scale" width="600" height="400" autoplay loop muted>
+                <source src="zigbvideo.mov" type="video/mp4">
+                <source src="zigbvideo.mov" type="video/quicktime"> <!-- In case it's a .mov file -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-500 w-full">
+        <p>&copy; 2024 Zigb. All rights reserved.</p>
+    </footer>
+
+    <!-- Typing Animation Script -->
+    <script>
+        const dynamicLines = [
+            "the Answers you need are right in front of you.",
+            "boom! Tailored interview answers delivered instantly.",
+            "watch your perfect answers appear like magic.",
+            "your custom interview response is ready in seconds.",
+            "your solutions appear, tailored just for you."
+        ]; // Lines to rotate
+
+        let index = 0;
+        let lineIndex = 0;
+        let typingElement = document.getElementById("dynamic-part");
+        let typingSpeed = 25; // Typing speed in milliseconds
+        let deleteSpeed = 25; // Deleting speed in milliseconds
+        let pauseBeforeDelete = 2000; // Pause before deleting
+        let pauseBeforeTyping = 500; // Pause before retyping
+
+        function typeText() {
+            if (index < dynamicLines[lineIndex].length) {
+                typingElement.innerHTML += dynamicLines[lineIndex].charAt(index);
+                index++;
+                setTimeout(typeText, typingSpeed);
+            } else {
+                setTimeout(deleteText, pauseBeforeDelete);
+            }
+        }
+
+        function deleteText() {
+            if (index > 0) {
+                typingElement.innerHTML = typingElement.innerHTML.substring(0, index - 1);
+                index--;
+                setTimeout(deleteText, deleteSpeed);
+            } else {
+                lineIndex = (lineIndex + 1) % dynamicLines.length; // Move to the next line or reset to the first
+                setTimeout(typeText, pauseBeforeTyping);
+            }
+        }
+
+        window.onload = function() {
+            // Start typing animation
+            setTimeout(typeText, pauseBeforeTyping);
+
+            // Set video playback speed to 1x
+            var video = document.getElementById("zigbVideo");
+            video.playbackRate = 1.0; // Set to 1x speed
+        };
+    </script>
+</body>
+</html>
