@@ -59,24 +59,24 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12 flex items-center justify-between space-x-12 fade-in">
+    <main class="container mx-auto px-6 py-12 flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 lg:space-x-12 fade-in">
         <!-- Left Section -->
-        <div class="w-1/2">
-            <h1 class="text-6xl font-bold mb-6 logo-gradient">ZigB</h1>
+        <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 logo-gradient">ZigB</h1>
             <!-- Supercharge your interview -->
-            <h2 class="text-3xl font-light mb-6">Supercharge your Interviews</h2>
+            <h2 class="text-2xl lg:text-3xl font-light mb-6">Supercharge your Interviews</h2>
             <!-- "Start, Stop" and dynamic text on the same line -->
-            <div class="text-xl mb-8 text-gray-400">
+            <div class="text-lg lg:text-xl mb-8 text-gray-400">
                 <span>Start, Stop, </span><span id="dynamic-part"></span>
             </div>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-full text-lg transition duration-300 hover-scale">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 lg:px-8 rounded-full text-lg transition duration-300 hover-scale">
                 Get ZigB
             </button>
         </div>
 
-        <!-- Right Section (Replaced Image with Video) -->
-        <div class="w-1/2">
-            <video id="zigbVideo" class="rounded-lg shadow-lg hover-scale" width="600" height="400" autoplay loop muted>
+        <!-- Right Section (Responsive Video) -->
+        <div class="w-full lg:w-1/2">
+            <video id="zigbVideo" class="rounded-lg shadow-lg hover-scale w-full h-auto" autoplay loop muted>
                 <source src="zigbvideo.mov" type="video/mp4">
                 <source src="zigbvideo.mov" type="video/quicktime"> <!-- In case it's a .mov file -->
                 Your browser does not support the video tag.
@@ -86,7 +86,7 @@
 
     <!-- Footer -->
     <footer class="py-6 text-center text-sm text-gray-500 w-full">
-        <p>&copy; 2024 Zigb. All rights reserved.</p>
+        <p>&copy; 2024 ZigB. All rights reserved.</p>
     </footer>
 
     <!-- Typing Animation Script -->
